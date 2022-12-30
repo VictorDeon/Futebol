@@ -38,11 +38,11 @@ public class Rotation : MonoBehaviour {
     void TouchRotation() {
         float moveY = Input.GetAxis("Mouse Y");
 
-        if (zRotation < 90 && moveY > 0) {
+        if (zRotation < 90 && moveY < 0) {
             zRotation += 2.5f;
         }
 
-        if (zRotation > 0 && moveY < 0) {
+        if (zRotation > 0 && moveY > 0) {
             zRotation -= 2.5f;
         }
     }
