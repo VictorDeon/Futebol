@@ -66,5 +66,6 @@ public class Rotation : MonoBehaviour {
     void OnMouseUp() {
         releaseRotation = false;
         releasekick = true;
+        Destroy(arrowImage.gameObject);
     }
 }
