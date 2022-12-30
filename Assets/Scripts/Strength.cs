@@ -22,8 +22,9 @@ public class Strength : MonoBehaviour {
         float x = strength * Mathf.Cos(rotation.zRotation * Mathf.Deg2Rad);
         float y = strength * Mathf.Sin(rotation.zRotation * Mathf.Deg2Rad);
 
-        if (Input.GetKeyUp(KeyCode.Space)) {
+        if (rotation.releasekick && Input.GetKeyUp(KeyCode.Space)) {
             ball.AddForce(new Vector2(x, y));
+            rotation.releasekick = false;
         }
     }
 }

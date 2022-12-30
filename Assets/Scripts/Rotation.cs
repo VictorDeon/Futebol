@@ -5,8 +5,9 @@ public class Rotation : MonoBehaviour {
 
     [SerializeField] private Transform startPosition;
     [SerializeField] private Image arrowImage;
+    public bool releaseRotation = false;
+    public bool releasekick = false;
     public float zRotation;
-    public bool releaseRotation = true;
 
     void Start() {
         PositionArrow();
@@ -14,8 +15,8 @@ public class Rotation : MonoBehaviour {
     }
 
     void Update() {
-        RotationArrow();
         if(releaseRotation) {
+            RotationArrow();
             TouchRotation();
             limitsRotation();
         }
@@ -54,5 +55,16 @@ public class Rotation : MonoBehaviour {
         if (zRotation <= 0) {
             zRotation = 0;
         }
+    }
+
+    // Clica na bola
+    void OnMouseDown() {
+        releaseRotation = true;
+    }
+
+    // Solta o clique da bola
+    void OnMouseUp() {
+        releaseRotation = false;
+        releasekick = true;
     }
 }
