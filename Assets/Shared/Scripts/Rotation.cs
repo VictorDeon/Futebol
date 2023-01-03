@@ -3,16 +3,10 @@ using UnityEngine.UI;
 
 public class Rotation : MonoBehaviour {
 
-    [SerializeField] private Transform startPosition;
     [SerializeField] private Image arrowImage;
     public bool releaseRotation = false;
     public bool releasekick = false;
     public float zRotation;
-
-    void Start() {
-        PositionArrow();
-        PositionBall();
-    }
 
     void Update() {
         if(releaseRotation) {
@@ -22,12 +16,12 @@ public class Rotation : MonoBehaviour {
         }
     }
 
-    void PositionArrow() {
-        arrowImage.rectTransform.position = startPosition.position;
+    private void FixedUpdate() {
+        PositionArrow();
     }
 
-    void PositionBall() {
-        this.gameObject.transform.position = startPosition.position;
+    void PositionArrow() {
+        arrowImage.rectTransform.position = this.transform.position;
     }
 
     void RotationArrow() {
