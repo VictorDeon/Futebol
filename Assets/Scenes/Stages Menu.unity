@@ -1306,9 +1306,9 @@ MonoBehaviour:
   levelList:
   - levelText: 01
     able: 1
-    completed: 1
+    completed: 0
   - levelText: 02
-    able: 1
+    able: 0
     completed: 0
   - levelText: 03
     able: 0

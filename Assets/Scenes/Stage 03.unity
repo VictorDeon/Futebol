@@ -3410,6 +3410,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2135832788, guid: c8ff7f6c1fca0104ab2b44cb4117beb5, type: 3}
+      propertyPath: stage
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4826708644443371842, guid: c8ff7f6c1fca0104ab2b44cb4117beb5, type: 3}
       propertyPath: m_Name
       value: Soccer Goal
