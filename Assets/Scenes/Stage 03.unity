@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 352566060}
   - component: {fileID: 352566059}
   m_Layer: 5
-  m_Name: Coin Image
+  m_Name: Ball Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -251,7 +251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.089}
   m_AnchorMax: {x: 0.39400002, y: 0.9666962}
-  m_AnchoredPosition: {x: -0.2999878, y: -0.5}
+  m_AnchoredPosition: {x: -0.2999878, y: -4}
   m_SizeDelta: {x: 23.159485, y: 21.389893}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &352566059
@@ -1129,7 +1129,7 @@ RectTransform:
   - {fileID: 610416562}
   - {fileID: 741346286}
   m_Father: {fileID: 1778494094}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1359,7 +1359,7 @@ GameObject:
   - component: {fileID: 745336429}
   - component: {fileID: 745336428}
   m_Layer: 5
-  m_Name: Coin Number
+  m_Name: Ball Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1666,8 +1666,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.082577266, y: 0.16623211}
   m_AnchorMax: {x: 1, y: 0.8665803}
-  m_AnchoredPosition: {x: -2, y: -0.9999981}
-  m_SizeDelta: {x: 63.76097, y: 21.093193}
+  m_AnchoredPosition: {x: -2, y: -5.7784}
+  m_SizeDelta: {x: 63.76, y: 33.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &893037782
 MonoBehaviour:
@@ -1689,8 +1689,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2553a3952722cc54cbe0e20ba0aadf65, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300034, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1803,7 +1803,7 @@ RectTransform:
   - {fileID: 672257904}
   - {fileID: 535252542}
   m_Father: {fileID: 1778494094}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1917,7 +1917,7 @@ RectTransform:
   - {fileID: 1071699673}
   - {fileID: 1645133587}
   m_Father: {fileID: 1778494094}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6877813, y: 0.87700003}
   m_AnchorMax: {x: 0.9237813, y: 1}
@@ -1979,7 +1979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1038852858
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1994,7 +1994,7 @@ RectTransform:
   m_Children:
   - {fileID: 406594935}
   m_Father: {fileID: 1778494094}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3071,7 +3071,7 @@ RectTransform:
   - {fileID: 1235921844}
   - {fileID: 523988226}
   m_Father: {fileID: 1778494094}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3250,7 +3250,7 @@ RectTransform:
   - {fileID: 352566058}
   - {fileID: 745336427}
   m_Father: {fileID: 1778494094}
-  m_RootOrder: 6
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.87700003}
   m_AnchorMax: {x: 0.1584375, y: 1}
@@ -3388,13 +3388,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1615315298}
-  - {fileID: 1038852858}
   - {fileID: 2136423004}
+  - {fileID: 1743038150}
+  - {fileID: 990720055}
+  - {fileID: 1038852858}
   - {fileID: 1703954254}
   - {fileID: 968323064}
   - {fileID: 705510259}
-  - {fileID: 1743038150}
-  - {fileID: 990720055}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3724,7 +3724,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1778494094}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.9282813, y: 0.8972223}
   m_AnchorMax: {x: 0.978125, y: 0.9861668}

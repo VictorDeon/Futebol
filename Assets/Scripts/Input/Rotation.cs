@@ -23,7 +23,7 @@ public class Rotation : MonoBehaviour {
     }
 
     void PositionArrow() {
-        arrowImage.rectTransform.position = this.transform.position;
+        arrowImage.rectTransform.position = transform.position;
     }
 
     void RotationArrow() {
@@ -56,12 +56,13 @@ public class Rotation : MonoBehaviour {
     // Clica na bola
     void OnMouseDown() {
         releaseRotation = true;
+        arrowImage.gameObject.SetActive(true);
     }
 
     // Solta o clique da bola
     void OnMouseUp() {
         releaseRotation = false;
         releasekick = true;
-        Destroy(arrowImage.gameObject);
+        arrowImage.gameObject.SetActive(false);
     }
 }

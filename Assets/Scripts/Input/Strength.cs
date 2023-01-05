@@ -35,12 +35,12 @@ public class Strength : MonoBehaviour {
             float moveX = Input.GetAxis("Mouse X");
 
             if (moveX < 0) {
-                arrowWithForce.fillAmount += 1 * Time.deltaTime;
+                arrowWithForce.fillAmount += 0.8f * Time.deltaTime;
                 strength = arrowWithForce.fillAmount * 1000;
             }
 
             if (moveX > 0) {
-                arrowWithForce.fillAmount -= 1 * Time.deltaTime;
+                arrowWithForce.fillAmount -= 0.8f * Time.deltaTime;
                 strength = arrowWithForce.fillAmount * 1000;
             }
         }
