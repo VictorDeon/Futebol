@@ -9,15 +9,10 @@ public class ScoreManager: MonoBehaviour {
     void Awake() {
         if (instance == null) {
             instance = this;
-            // Não destruir o objeto quando passado de uma cena para outra.
             DontDestroyOnLoad(gameObject);
         } else {
             Destroy(gameObject);
         }
-    }
-
-    void Start() {
-        GameStartScore();
     }
 
     // Vai ser chamado no gerenciador principal do jogo.

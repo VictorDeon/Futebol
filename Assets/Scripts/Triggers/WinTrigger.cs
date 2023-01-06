@@ -1,7 +1,7 @@
 using UnityEngine;
 using Constants;
 
-public class WinManager: MonoBehaviour {
+public class WinTrigger: MonoBehaviour {
 
     public int stage;
 

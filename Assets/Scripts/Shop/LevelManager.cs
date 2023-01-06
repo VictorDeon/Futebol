@@ -24,13 +24,17 @@ public class LevelManager: MonoBehaviour {
 
             // Pega os leveis que já foram completados e coloca a sprite correta
             string levelText = $"Stage {level.levelText}";
-            if (PlayerPrefs.GetString(levelText) == STAGE_STATUS.UNLOCKED) {
+            string status = PlayerPrefs.GetString(levelText);
+            print($"{levelText} - {status}");
+            if (status == STAGE_STATUS.UNLOCKED) {
                 level.able = true;
-            } else if (PlayerPrefs.GetString(levelText) == STAGE_STATUS.COMPLETED || level.completed) {
+            } else if (status == STAGE_STATUS.COMPLETED || level.completed) {
                 level.able = true;
                 level.completed = true;
                 newStageButton = Instantiate(completeButton);
             }
+
+            print($"{levelText}, Able: {level.able}, Completed: {level.completed}");
 
             LevelButton levelButton = newStageButton.GetComponent<LevelButton>();
             levelButton.levelTextButton.text = "";
