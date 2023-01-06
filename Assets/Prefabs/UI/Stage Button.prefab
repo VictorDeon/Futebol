@@ -93,7 +93,6 @@ GameObject:
   - component: {fileID: 7637841464919134449}
   - component: {fileID: 7637841464919134448}
   - component: {fileID: 1103926635691880240}
-  - component: {fileID: -8635301071984597079}
   m_Layer: 5
   m_Name: Stage Button
   m_TagString: Untagged
@@ -219,16 +218,3 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 2, y: -1}
   m_UseGraphicAlpha: 1
---- !u!114 &-8635301071984597079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7637841464919134450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdb32ac7828ba8c4ab223b88a1062219, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelTextButton: {fileID: 7637841463265008743}

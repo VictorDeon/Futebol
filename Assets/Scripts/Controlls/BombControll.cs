@@ -1,7 +1,6 @@
-using System.Collections;
 using UnityEngine;
 
-public class BombManager: MonoBehaviour {
+public class BombControll: MonoBehaviour {
 
     [SerializeField] private GameObject explosion;
     

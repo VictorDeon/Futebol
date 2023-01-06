@@ -25,7 +25,6 @@ public class LevelManager: MonoBehaviour {
             // Pega os leveis que já foram completados e coloca a sprite correta
             string levelText = $"Stage {level.levelText}";
             string status = PlayerPrefs.GetString(levelText);
-            print($"{levelText} - {status}");
             if (status == STAGE_STATUS.UNLOCKED) {
                 level.able = true;
             } else if (status == STAGE_STATUS.COMPLETED || level.completed) {
@@ -34,15 +33,13 @@ public class LevelManager: MonoBehaviour {
                 newStageButton = Instantiate(completeButton);
             }
 
-            print($"{levelText}, Able: {level.able}, Completed: {level.completed}");
-
-            LevelButton levelButton = newStageButton.GetComponent<LevelButton>();
-            levelButton.levelTextButton.text = "";
+            Text levelTextButton = newStageButton.GetComponentInChildren<Text>();
+            levelTextButton.text = "";
             if(level.able) {
-                levelButton.levelTextButton.text = level.levelText;
+                levelTextButton.text = level.levelText;
             }
 
-            Button btn = levelButton.GetComponent<Button>();
+            Button btn = newStageButton.GetComponent<Button>();
             btn.interactable = level.able;
             btn.onClick.AddListener(() => ClickToLevel(levelText));
             
@@ -55,7 +52,6 @@ public class LevelManager: MonoBehaviour {
     }
 
     void Start() {
-        PlayerPrefs.DeleteAll();
         ShowStageButtons();
     }
 }

@@ -5,7 +5,6 @@ public class ScoreManager: MonoBehaviour {
     public static ScoreManager instance;
     public int coins;
 
-    // Executado mesmo com o game object desativado.
     void Awake() {
         if (instance == null) {
             instance = this;

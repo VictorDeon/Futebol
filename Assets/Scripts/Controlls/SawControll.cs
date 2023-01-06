@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SawManager : MonoBehaviour {
+public class SawControll : MonoBehaviour {
 
     private SliderJoint2D saw;
     private JointMotor2D motor;

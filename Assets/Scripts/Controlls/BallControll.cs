@@ -30,10 +30,10 @@ public class BallControll: MonoBehaviour {
     }
 
     void Update() {
-        ForceControl();
         ApplyForce();
-
+        
         if(releaseRotation) {
+            ForceControl();
             RotationArrow();
             TouchRotation();
             limitsRotation();
@@ -45,7 +45,7 @@ public class BallControll: MonoBehaviour {
     }
 
     void PositionArrow() {
-        arrow.gameObject.transform.position = transform.position;
+        arrow.gameObject.transform.position = this.transform.position;
     }
 
     void PositionBall() {
@@ -110,19 +110,17 @@ public class BallControll: MonoBehaviour {
     }
 
     void ForceControl() {
-        if(releaseRotation) {
-            float moveX = Input.GetAxis("Mouse X");
-            Image arrowWithForceImg = arrowWithForce.GetComponent<Image>();
+        float moveX = Input.GetAxis("Mouse X");
+        Image arrowWithForceImg = arrowWithForce.GetComponent<Image>();
 
-            if(moveX < 0) {
-                arrowWithForceImg.fillAmount += 1f * Time.deltaTime;
-                strength = arrowWithForceImg.fillAmount * 1000;
-            }
+        if(moveX < 0) {
+            arrowWithForceImg.fillAmount += 1f * Time.deltaTime;
+            strength = arrowWithForceImg.fillAmount * 1000;
+        }
 
-            if(moveX > 0) {
-                arrowWithForceImg.fillAmount -= 1f * Time.deltaTime;
-                strength = arrowWithForceImg.fillAmount * 1000;
-            }
+        if(moveX > 0) {
+            arrowWithForceImg.fillAmount -= 1f * Time.deltaTime;
+            strength = arrowWithForceImg.fillAmount * 1000;
         }
     }
 

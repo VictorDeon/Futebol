@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class ExplosionDestroy: MonoBehaviour {
+public class ExplosionControll: MonoBehaviour {
 
     [SerializeField] private string label;
     private GameObject obj;

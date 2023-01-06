@@ -11,10 +11,11 @@ public class GameManager: MonoBehaviour {
     private int sceneBalls = 0;
     public bool kicked = false;
 
+    // Executado mesmo com o game object desativado.
+    // Não destruir o objeto quando passado de uma cena para outra.
     void Awake() {
         if(instance == null) {
             instance = this;
-            // Não destruir o objeto quando passado de uma cena para outra.
             DontDestroyOnLoad(gameObject);
         } else {
             Destroy(gameObject);
