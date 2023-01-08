@@ -10,6 +10,7 @@ public class GameManager: MonoBehaviour {
     public int qtdKicks = 3;
     public int sceneBalls = 0;
     public bool kicked = false;
+    public bool win;
 
     // Executado mesmo com o game object desativado.
     // Não destruir o objeto quando passado de uma cena para outra.
@@ -35,6 +36,10 @@ public class GameManager: MonoBehaviour {
         if (qtdKicks <= 0) {
             this.GameOver();
         }
+        
+        if (win) {
+            this.WinGame();
+        }
     }
 
     void LoadBallInScene(Scene scene, LoadSceneMode mode) {
@@ -51,6 +56,11 @@ public class GameManager: MonoBehaviour {
 
     void GameOver() {
         UIManager.instance.GameOverUI();
+        this.win = false;
+    }
+
+    void WinGame() {
+        UIManager.instance.WinGameUI();
     }
 }
 

@@ -906,7 +906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &264571663
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2473,6 +2473,7 @@ MonoBehaviour:
   qtdKicks: 3
   sceneBalls: 0
   kicked: 0
+  win: 0
 --- !u!1 &979422504
 GameObject:
   m_ObjectHideFlags: 0
@@ -5048,6 +5049,14 @@ PrefabInstance:
     - target: {fileID: 4826708644443371869, guid: c8ff7f6c1fca0104ab2b44cb4117beb5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826708644770348739, guid: c8ff7f6c1fca0104ab2b44cb4117beb5, type: 3}
+      propertyPath: m_Name
+      value: Goal Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 4826708644770348739, guid: c8ff7f6c1fca0104ab2b44cb4117beb5, type: 3}
+      propertyPath: m_TagString
+      value: goal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8ff7f6c1fca0104ab2b44cb4117beb5, type: 3}

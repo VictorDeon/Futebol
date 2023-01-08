@@ -144,6 +144,10 @@ public class BallControll: MonoBehaviour {
         if (otherObject.gameObject.CompareTag("die")) {
             this.die();
         }
+
+        if (otherObject.gameObject.CompareTag("goal")) {
+            GameManager.instance.win = true;
+        }
     }
 
     // Ao terminar a animação deixe a bola dinamica para a gravidade e força agir

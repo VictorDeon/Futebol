@@ -130,8 +130,8 @@ GameObject:
   - component: {fileID: 4826708644770348765}
   - component: {fileID: 2135832788}
   m_Layer: 0
-  m_Name: GoalTrigger
-  m_TagString: Untagged
+  m_Name: Goal Trigger
+  m_TagString: goal
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -194,4 +194,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dba2204e5841fa4fb7c86eaa62bfeaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stage: 01
+  stage: 1

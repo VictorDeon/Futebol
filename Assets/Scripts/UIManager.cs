@@ -7,7 +7,7 @@ public class UIManager: MonoBehaviour {
 
     public static UIManager instance;
     public Text coinsUI, ballsUI;
-    private GameObject losePanel;
+    private GameObject losePanel, winPanel;
 
     void Awake() {
         if(instance == null) {
@@ -26,6 +26,7 @@ public class UIManager: MonoBehaviour {
         coinsUI = GameObject.Find("Coin Number").GetComponent<Text>();
         ballsUI = GameObject.Find("Ball Number").GetComponent<Text>();
         losePanel = GameObject.Find("Lose Panel");
+        winPanel = GameObject.Find("Win Panel");
     }
 
     public void UpdateUI() {
@@ -37,6 +38,10 @@ public class UIManager: MonoBehaviour {
         losePanel.SetActive(true);
     }
 
+    public void WinGameUI() {
+        winPanel.SetActive(true);
+    }
+
     void PanelToogle() {
         StartCoroutine(timeToDeactiveUIs());
     }
@@ -45,6 +50,7 @@ public class UIManager: MonoBehaviour {
     IEnumerator timeToDeactiveUIs() {
         yield return new WaitForSeconds(0.001f);
         losePanel.SetActive(false);
+        winPanel.SetActive(false);
     }
 }
 
