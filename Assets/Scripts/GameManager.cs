@@ -10,6 +10,8 @@ public class GameManager: MonoBehaviour {
     public int qtdKicks = 3;
     public int sceneBalls = 0;
     public bool kicked = false;
+    // Jogo
+    public bool gameStarted;
     public bool win;
 
     // Executado mesmo com o game object desativado.
@@ -22,7 +24,7 @@ public class GameManager: MonoBehaviour {
             Destroy(gameObject);
         }
 
-        SceneManager.sceneLoaded += LoadBallInScene;
+        SceneManager.sceneLoaded += LoadInScene;
     }
 
     void Start() {
@@ -33,21 +35,19 @@ public class GameManager: MonoBehaviour {
         ScoreManager.instance.UpdateScore();
         UIManager.instance.UpdateUI();
         InstanciateBalls();
-        if (qtdKicks <= 0) {
-            this.GameOver();
-        }
-        
-        if (win) {
-            this.WinGame();
-        }
+        if (qtdKicks <= 0) { GameOver(); }
+        if (win) { WinGame(); }
     }
 
-    void LoadBallInScene(Scene scene, LoadSceneMode mode) {
-        ballPosition = GameObject.Find("Ball Start Position").GetComponent<Transform>();
+    void LoadInScene(Scene scene, LoadSceneMode mode) {
+        if (WhereAmI.instance.isStageScene) {
+            ballPosition = GameObject.Find("Ball Start Position").GetComponent<Transform>();
+            StartGame();
+        }
     }
 
     void InstanciateBalls() {
-        if (qtdKicks > 0 && sceneBalls == 0) {
+        if(qtdKicks > 0 && sceneBalls == 0) {
             Instantiate(ball, new Vector2(ballPosition.position.x, ballPosition.position.y), Quaternion.identity);
             sceneBalls += 1;
             kicked = false;
@@ -56,11 +56,21 @@ public class GameManager: MonoBehaviour {
 
     void GameOver() {
         UIManager.instance.GameOverUI();
-        this.win = false;
+        win = false;
+        gameStarted = false;
     }
 
     void WinGame() {
         UIManager.instance.WinGameUI();
+        gameStarted = false;
+    }
+
+    void StartGame() {
+        gameStarted = true;
+        win = false;
+        qtdKicks = 3;
+        sceneBalls = 0;
+        UIManager.instance.StartUI();
     }
 }
 

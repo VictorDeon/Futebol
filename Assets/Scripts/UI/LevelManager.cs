@@ -18,6 +18,15 @@ public class LevelManager: MonoBehaviour {
     public Transform localButton;
     public List<Level> levelList;
 
+    void Awake() {
+        Destroy(GameObject.Find("UI Manager"));
+        Destroy(GameObject.Find("Game Manager"));
+    }
+
+    void Start() {
+        ShowStageButtons();
+    }
+
     void ShowStageButtons() {
         foreach(Level level in levelList) {
             GameObject newStageButton = Instantiate(button);
@@ -49,9 +58,5 @@ public class LevelManager: MonoBehaviour {
 
     void ClickToLevel(string level) {
         SceneManager.LoadScene(level);
-    }
-
-    void Start() {
-        ShowStageButtons();
     }
 }

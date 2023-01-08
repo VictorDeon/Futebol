@@ -3,9 +3,8 @@ using Constants;
 
 public class WinTrigger: MonoBehaviour {
 
-    public int stage;
-
     private void OnTriggerEnter2D(Collider2D otherObject) {
+        int stage = WhereAmI.instance.sceneIndex;
         int unlockedStage = stage + 1;
         string strUnlockedStage = unlockedStage.ToString().PadLeft(2, '0');
         string strStage = stage.ToString().PadLeft(2, '0');
