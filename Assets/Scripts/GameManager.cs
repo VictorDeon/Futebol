@@ -7,8 +7,8 @@ public class GameManager: MonoBehaviour {
     // Bola
     [SerializeField] private GameObject ball;
     private Transform ballPosition;
-    private int qtdKicks = 3;
-    private int sceneBalls = 0;
+    public int qtdKicks = 3;
+    public int sceneBalls = 0;
     public bool kicked = false;
 
     // Executado mesmo com o game object desativado.
@@ -32,6 +32,9 @@ public class GameManager: MonoBehaviour {
         ScoreManager.instance.UpdateScore();
         UIManager.instance.UpdateUI();
         InstanciateBalls();
+        if (qtdKicks <= 0) {
+            this.GameOver();
+        }
     }
 
     void LoadBallInScene(Scene scene, LoadSceneMode mode) {
@@ -44,6 +47,10 @@ public class GameManager: MonoBehaviour {
             sceneBalls += 1;
             kicked = false;
         }
+    }
+
+    void GameOver() {
+        UIManager.instance.GameOverUI();
     }
 }
 

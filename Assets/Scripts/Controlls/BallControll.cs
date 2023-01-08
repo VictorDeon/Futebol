@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class BallControll: MonoBehaviour {
-    [SerializeField] private Transform positionStart;
-
     // Seta
     public GameObject arrow;
     public GameObject arrowWithForce;
@@ -17,20 +15,25 @@ public class BallControll: MonoBehaviour {
     private Rigidbody2D ball;
     public float strength = 0;
 
+    // Paredes
+    private Transform leftWall, rightWall;
+
     void Awake() {
         arrow = GameObject.Find("Arrow");
         arrowWithForce = arrow.transform.GetChild(0).gameObject;
-        arrow.SetActive(false);
+        arrow.GetComponent<Image>().enabled = false;
+        arrowWithForce.GetComponent<Image>().enabled = false;
+        leftWall = GameObject.Find("LeftAll").GetComponent<Transform>();
+        rightWall = GameObject.Find("RightWall").GetComponent<Transform>();
     }
 
     void Start() {
-        positionStart = GameObject.Find("Ball Start Position").GetComponent<Transform>();
         ball = GetComponent<Rigidbody2D>();
-        PositionBall();
     }
 
     void Update() {
         ApplyForce();
+        Walls();
         
         if(releaseRotation) {
             ForceControl();
@@ -46,10 +49,6 @@ public class BallControll: MonoBehaviour {
 
     void PositionArrow() {
         arrow.gameObject.transform.position = this.transform.position;
-    }
-
-    void PositionBall() {
-        this.gameObject.transform.position = positionStart.position;
     }
 
     void RotationArrow() {
@@ -83,18 +82,22 @@ public class BallControll: MonoBehaviour {
     void OnMouseDown() {
         if(!GameManager.instance.kicked) {
             releaseRotation = true;
-            arrow.SetActive(true);
+            arrow.GetComponent<Image>().enabled = true;
+            arrowWithForce.GetComponent<Image>().enabled = true;
         }
     }
 
     // Solta o clique da bola
     void OnMouseUp() {
         releaseRotation = false;
+        arrow.GetComponent<Image>().enabled = false;
+        Image arrowWithForceImg = arrowWithForce.GetComponent<Image>();
+        arrowWithForceImg.enabled = false;
         if(!GameManager.instance.kicked && strength > 0) {
             releasekick = true;
             GameManager.instance.kicked = true;
+            arrowWithForceImg.fillAmount = 0;
         }
-        arrow.SetActive(false);
     }
 
     // Direciona a força de acordo com o angulo inserido.
@@ -121,6 +124,25 @@ public class BallControll: MonoBehaviour {
         if(moveX > 0) {
             arrowWithForceImg.fillAmount -= 1f * Time.deltaTime;
             strength = arrowWithForceImg.fillAmount * 1000;
+        }
+    }
+
+    void die() {
+        Destroy(this.gameObject);
+        GameManager.instance.sceneBalls -= 1;
+        GameManager.instance.qtdKicks -= 1;
+    }
+
+    void Walls() {
+        if (this.gameObject.transform.position.x > rightWall.position.x ||
+            this.gameObject.transform.position.x < leftWall.position.x) {
+            this.die();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D otherObject) {
+        if (otherObject.gameObject.CompareTag("die")) {
+            this.die();
         }
     }
 
