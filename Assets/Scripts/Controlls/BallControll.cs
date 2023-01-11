@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Constants;
+using System.Collections;
 
 public class BallControll: MonoBehaviour {
     // Seta
@@ -17,6 +19,9 @@ public class BallControll: MonoBehaviour {
 
     // Paredes
     private Transform leftWall, rightWall;
+
+    // Animação
+    [SerializeField] private GameObject popBallAnimation;
 
     void Awake() {
         arrow = GameObject.Find("Arrow");
@@ -128,9 +133,11 @@ public class BallControll: MonoBehaviour {
     }
 
     void die() {
+        Instantiate(popBallAnimation, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
         GameManager.instance.sceneBalls -= 1;
         GameManager.instance.qtdKicks -= 1;
+        StartCoroutine(KillAnimation());
     }
 
     void Walls() {
@@ -146,8 +153,19 @@ public class BallControll: MonoBehaviour {
         }
 
         if (otherObject.gameObject.CompareTag("goal")) {
+            int stage = WhereAmI.instance.sceneIndex;
+            int unlockedStage = stage + 1;
+            string strUnlockedStage = unlockedStage.ToString().PadLeft(2, '0');
+            string strStage = stage.ToString().PadLeft(2, '0');
+            PlayerPrefs.SetString($"Stage {strStage}", STAGE_STATUS.COMPLETED);
+            PlayerPrefs.SetString($"Stage {strUnlockedStage}", STAGE_STATUS.UNLOCKED);
             GameManager.instance.win = true;
         }
+    }
+
+    IEnumerator KillAnimation() {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(popBallAnimation.gameObject);
     }
 
     // Ao terminar a animação deixe a bola dinamica para a gravidade e força agir

@@ -22,10 +22,15 @@ public class UIManager: MonoBehaviour {
         }
 
         SceneManager.sceneLoaded += LoadUI;
+        FindObjects();
     }
 
     // Ao passar de fase quero manter as moedas de uma fase para outra.
     void LoadUI(Scene scene, LoadSceneMode mode) {
+        FindObjects();
+    }
+
+    void FindObjects() {
         if(WhereAmI.instance.isStageScene) {
             coinsUI = GameObject.Find("Coin Number").GetComponent<Text>();
             ballsUI = GameObject.Find("Ball Number").GetComponent<Text>();

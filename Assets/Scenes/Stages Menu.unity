@@ -1419,6 +1419,8 @@ MonoBehaviour:
   menuStageSceneIndex: 0
   shopSceneIndex: 0
   isStageScene: 0
+  UIManager: {fileID: 3935793796465367443, guid: 2fe169a1ad0dffd4b99f96bd8151418d, type: 3}
+  GameManager: {fileID: 72999371905180966, guid: a272c3040e4756840940659b58fb4c44, type: 3}
 --- !u!4 &1307274868
 Transform:
   m_ObjectHideFlags: 0

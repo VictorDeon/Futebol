@@ -19,8 +19,8 @@ public class LevelManager: MonoBehaviour {
     public List<Level> levelList;
 
     void Awake() {
-        Destroy(GameObject.Find("UI Manager"));
-        Destroy(GameObject.Find("Game Manager"));
+        Destroy(GameObject.Find("UI Manager(Clone)"));
+        Destroy(GameObject.Find("Game Manager(Clone)"));
     }
 
     void Start() {

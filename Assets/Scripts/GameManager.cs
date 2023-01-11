@@ -7,7 +7,7 @@ public class GameManager: MonoBehaviour {
     // Bola
     [SerializeField] private GameObject ball;
     private Transform ballPosition;
-    public int qtdKicks = 3;
+    public int qtdKicks = 2;
     public int sceneBalls = 0;
     public bool kicked = false;
     // Jogo
@@ -25,10 +25,12 @@ public class GameManager: MonoBehaviour {
         }
 
         SceneManager.sceneLoaded += LoadInScene;
+        ballPosition = GameObject.Find("Ball Start Position").GetComponent<Transform>();
     }
 
     void Start() {
         ScoreManager.instance.GameStartScore();
+        StartGame();
     }
 
     void Update() {
@@ -68,7 +70,7 @@ public class GameManager: MonoBehaviour {
     void StartGame() {
         gameStarted = true;
         win = false;
-        qtdKicks = 3;
+        qtdKicks = 2;
         sceneBalls = 0;
         UIManager.instance.StartUI();
     }
