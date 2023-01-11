@@ -158,7 +158,9 @@ public class BallControll: MonoBehaviour {
             string strUnlockedStage = unlockedStage.ToString().PadLeft(2, '0');
             string strStage = stage.ToString().PadLeft(2, '0');
             PlayerPrefs.SetString($"Stage {strStage}", STAGE_STATUS.COMPLETED);
-            PlayerPrefs.SetString($"Stage {strUnlockedStage}", STAGE_STATUS.UNLOCKED);
+            if (PlayerPrefs.GetString($"Stage {strUnlockedStage}") != STAGE_STATUS.COMPLETED) {
+                PlayerPrefs.SetString($"Stage {strUnlockedStage}", STAGE_STATUS.UNLOCKED);
+            }
             GameManager.instance.win = true;
         }
     }
