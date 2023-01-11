@@ -25,11 +25,12 @@ public class GameManager: MonoBehaviour {
         }
 
         SceneManager.sceneLoaded += LoadInScene;
-        ballPosition = GameObject.Find("Ball Start Position").GetComponent<Transform>();
     }
 
+    // Executado apenas uma vez ao iniciar o jogo
     void Start() {
         ScoreManager.instance.GameStartScore();
+        ballPosition = GameObject.Find("Ball Start Position").GetComponent<Transform>();
         StartGame();
     }
 
@@ -41,6 +42,7 @@ public class GameManager: MonoBehaviour {
         if (win) { WinGame(); }
     }
 
+    // Executado em cada nova scena
     void LoadInScene(Scene scene, LoadSceneMode mode) {
         if (WhereAmI.instance.isStageScene) {
             ballPosition = GameObject.Find("Ball Start Position").GetComponent<Transform>();
