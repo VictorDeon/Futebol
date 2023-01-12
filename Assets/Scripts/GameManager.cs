@@ -6,7 +6,7 @@ public class GameManager: MonoBehaviour {
     public static GameManager instance;
     // Bola
     [SerializeField] private GameObject ball;
-    private Transform ballPosition;
+    [SerializeField] private Transform ballPosition;
     public int qtdKicks = 2;
     public int sceneBalls = 0;
     public bool kicked = false;
@@ -52,18 +52,10 @@ public class GameManager: MonoBehaviour {
 
     void InstanciateBalls() {
         // Cenas a partir da fase 04 terão movimentação de camera
-        if(WhereAmI.instance.isStageScene && WhereAmI.instance.sceneIndex >= 4) {
-            if(qtdKicks > 0 && sceneBalls == 0 && Camera.main.transform.position.x <= 0.05f) {
-                Instantiate(ball, new Vector2(ballPosition.position.x, ballPosition.position.y), Quaternion.identity);
-                sceneBalls += 1;
-                kicked = false;
-            }
-        } else {
-            if(qtdKicks > 0 && sceneBalls == 0) {
-                Instantiate(ball, new Vector2(ballPosition.position.x, ballPosition.position.y), Quaternion.identity);
-                sceneBalls += 1;
-                kicked = false;
-            }
+        if(qtdKicks > 0 && sceneBalls == 0) {
+            Instantiate(ball, new Vector2(ballPosition.position.x, ballPosition.position.y), Quaternion.identity);
+            sceneBalls += 1;
+            kicked = false;
         }
     }
 

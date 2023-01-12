@@ -28,7 +28,7 @@ public class BallControll: MonoBehaviour {
         arrowWithForce = arrow.transform.GetChild(0).gameObject;
         arrow.GetComponent<Image>().enabled = false;
         arrowWithForce.GetComponent<Image>().enabled = false;
-        leftWall = GameObject.Find("LeftAll").GetComponent<Transform>();
+        leftWall = GameObject.Find("LeftWall").GetComponent<Transform>();
         rightWall = GameObject.Find("RightWall").GetComponent<Transform>();
     }
 
