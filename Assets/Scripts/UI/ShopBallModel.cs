@@ -8,6 +8,7 @@ public class ShopBallModel {
     public int price;
     public bool enabled;
     public bool bought;
+    public bool use;
 
 }
 

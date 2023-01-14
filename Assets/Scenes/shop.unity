@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.2999878, y: -68.5}
+  m_AnchoredPosition: {x: -2.3000488, y: -68.5}
   m_SizeDelta: {x: -51.47, y: -163}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &41720334
@@ -757,38 +757,46 @@ MonoBehaviour:
   - id: 0
     spriteName: default
     price: 0
-    enabled: 0
+    enabled: 1
     bought: 1
+    use: 1
   - id: 1
     spriteName: argelia
     price: 300
-    enabled: 0
+    enabled: 1
     bought: 0
+    use: 0
   - id: 2
     spriteName: argentina
     price: 500
-    enabled: 0
+    enabled: 1
     bought: 0
+    use: 0
   - id: 3
     spriteName: camaroes
     price: 1200
     enabled: 0
     bought: 0
+    use: 0
   - id: 4
     spriteName: chile
     price: 1500
     enabled: 0
     bought: 0
+    use: 0
   - id: 5
     spriteName: alemanha
     price: 2000
     enabled: 0
     bought: 0
+    use: 0
   - id: 6
     spriteName: brasil
     price: 2500
     enabled: 0
     bought: 0
+    use: 0
+  tempBalls: []
   buttonBall: {fileID: 5238948913125284368, guid: 8171f653a9078754fba1bf6b1ddaa6f6, type: 3}
   panelGrid: {fileID: 1283330165}
 --- !u!4 &775256249
@@ -1106,7 +1114,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0012817383, y: -0.0025024414}
+  m_AnchoredPosition: {x: 0.0012207031, y: -0.0025024414}
   m_SizeDelta: {x: 0, y: 0.0050049}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1283330166

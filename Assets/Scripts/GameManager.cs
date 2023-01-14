@@ -29,7 +29,6 @@ public class GameManager: MonoBehaviour {
 
     // Executado apenas uma vez ao iniciar o jogo
     void Start() {
-        ScoreManager.instance.GameStartScore();
         ballPosition = GameObject.Find("Ball Start Position").GetComponent<Transform>();
         StartGame();
     }

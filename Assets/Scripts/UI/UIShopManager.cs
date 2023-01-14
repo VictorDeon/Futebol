@@ -8,6 +8,7 @@ public class UIShopManager: MonoBehaviour {
     [SerializeField] private Text coinsText;
     public static UIShopManager instance;
     public List<ShopBallModel> balls = new List<ShopBallModel>();
+    public List<ShopBallController> controllerBalls = new List<ShopBallController>();
     public GameObject buttonBall;
     public Transform panelGrid;
 
@@ -34,22 +35,24 @@ public class UIShopManager: MonoBehaviour {
             ShopBallController controll = button.GetComponent<ShopBallController>();
             controll.ballId = ball.id;
             controll.priceContainer.GetComponentInChildren<Text>().text = ball.price.ToString();
+            controllerBalls.Add(controll);
 
-            if (ball.bought) {
+            if(ball.bought) {
                 controll.ballSprite.sprite = Resources.Load<Sprite>($"Balls/{ball.spriteName}");
                 controll.released.SetActive(true);
                 controll.priceContainer.SetActive(false);
                 controll.closed.SetActive(false);
-            } else if (!ball.enabled) {
-                controll.ballSprite.sprite = Resources.Load<Sprite>($"Balls/{ball.spriteName}_cinza");
-                button.GetComponent<Button>().interactable = false;
-                controll.closed.SetActive(true);
-                controll.priceContainer.SetActive(false);
-                controll.released.SetActive(false);
             } else {
-                controll.closed.SetActive(false);
+                controll.ballSprite.sprite = Resources.Load<Sprite>($"Balls/{ball.spriteName}_cinza");
                 controll.released.SetActive(false);
-                controll.priceContainer.SetActive(true);
+                if(ball.enabled) {
+                    controll.priceContainer.SetActive(true);
+                    controll.closed.SetActive(false);
+                } else {
+                    button.GetComponent<Button>().interactable = false;
+                    controll.closed.SetActive(true);
+                    controll.priceContainer.SetActive(false);
+                }
             }
         }
     }

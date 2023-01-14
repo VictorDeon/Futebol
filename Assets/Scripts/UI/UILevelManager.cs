@@ -11,6 +11,7 @@ public class UILevelManager: MonoBehaviour {
     }
 
     void Awake() {
+        ScoreManager.instance.GameStartScore();
         Destroy(GameObject.Find("UI Manager(Clone)"));
         Destroy(GameObject.Find("Game Manager(Clone)"));
     }

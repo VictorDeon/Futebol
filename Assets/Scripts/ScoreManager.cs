@@ -12,6 +12,8 @@ public class ScoreManager: MonoBehaviour {
         } else {
             Destroy(gameObject);
         }
+
+        PlayerPrefs.SetInt("Coins", 500);
     }
 
     // Vai ser chamado no gerenciador principal do jogo.
