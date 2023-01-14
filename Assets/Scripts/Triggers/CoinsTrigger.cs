@@ -1,12 +1,9 @@
 using UnityEngine;
 
 public class CoinsTrigger: MonoBehaviour {
-
-    public int coinValue = 10;
-
     private void OnTriggerEnter2D(Collider2D otherObject) {
         if (otherObject.gameObject.CompareTag("ball")) {
-            ScoreManager.instance.CollectCoins(this.coinValue);
+            ScoreManager.instance.CollectCoins(100);
             AudioManager.instance.PlaySong(0);
             Destroy(this.gameObject);
         }

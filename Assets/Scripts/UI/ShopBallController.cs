@@ -27,6 +27,7 @@ public class ShopBallController: MonoBehaviour {
                     ballSprite.sprite = Resources.Load<Sprite>($"Balls/{balls[i].spriteName}");
                     ScoreManager.instance.LoseCoins(balls[i].price);
                     balls[i].bought = true;
+                    PlayerPrefs.SetInt($"ItemShop{ballId}Bought", 1);
                 }
             } else {
                 this.GetLastBallUsed(balls[i]);
@@ -43,11 +44,13 @@ public class ShopBallController: MonoBehaviour {
         priceContainer.SetActive(false);
         closed.SetActive(false);
         ball.use = true;
+        PlayerPrefs.SetInt($"ItemShop{ball.id}Using", 1);
     }
 
     void ChangeLastUsedBall() {
         this.lastBallControllerUsed.priceContainer.GetComponentInChildren<Text>().text = "Usar";
         this.lastBallUsed.use = false;
+        PlayerPrefs.SetInt($"ItemShop{this.lastBallUsed.id}Using", 0);
         this.lastBallControllerUsed.released.SetActive(false);
         this.lastBallControllerUsed.priceContainer.SetActive(true);
         this.lastBallControllerUsed.closed.SetActive(false);

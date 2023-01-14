@@ -13,7 +13,7 @@ public class UIShopManager: MonoBehaviour {
     public Transform panelGrid;
 
     void Awake() {
-        if (instance == null) {
+        if(instance == null) {
             instance = this;
         }
     }
@@ -33,18 +33,25 @@ public class UIShopManager: MonoBehaviour {
     }
 
     void FillBallList() {
-        foreach (ShopBallModel ball in balls) {
+        foreach(ShopBallModel ball in balls) {
             GameObject button = Instantiate(buttonBall);
             button.transform.SetParent(panelGrid, false);
             ShopBallController controll = button.GetComponent<ShopBallController>();
             controll.ballId = ball.id;
             controll.priceContainer.GetComponentInChildren<Text>().text = ball.price.ToString();
             controllerBalls.Add(controll);
+            this.UpdateBallInfoSaved(ball);
 
-            if(ball.bought) {
+            if(ball.use) {
                 controll.ballSprite.sprite = Resources.Load<Sprite>($"Balls/{ball.spriteName}");
                 controll.released.SetActive(true);
                 controll.priceContainer.SetActive(false);
+                controll.closed.SetActive(false);
+            } else if (ball.bought) {
+                controll.ballSprite.sprite = Resources.Load<Sprite>($"Balls/{ball.spriteName}");
+                controll.released.SetActive(false);
+                controll.priceContainer.SetActive(true);
+                controll.priceContainer.GetComponentInChildren<Text>().text = "Usar";
                 controll.closed.SetActive(false);
             } else {
                 controll.ballSprite.sprite = Resources.Load<Sprite>($"Balls/{ball.spriteName}_cinza");
@@ -60,5 +67,21 @@ public class UIShopManager: MonoBehaviour {
             }
         }
     }
-}
 
+    void UpdateBallInfoSaved(ShopBallModel ball) {
+        int TRUE = 1;
+        if(PlayerPrefs.GetInt($"ItemShop{ball.id}Bought") == TRUE) {
+            ball.bought = true;
+        } else {
+            ball.bought = false;
+        }
+
+        if(PlayerPrefs.GetInt($"ItemShop{ball.id}Using") == TRUE) {
+            ball.use = true;
+        } else {
+            ball.use = false;
+        }
+
+        // Atualizar quando está enabled...
+    }
+}
