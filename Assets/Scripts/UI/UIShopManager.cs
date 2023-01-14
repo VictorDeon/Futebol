@@ -23,6 +23,10 @@ public class UIShopManager: MonoBehaviour {
         FillBallList();
     }
 
+    void FixedUpdate() {
+        coinsText.text = PlayerPrefs.GetInt("Coins").ToString();
+    }
+
     public void GoToLevelScene() {
         int shopIndex = SceneUtility.GetBuildIndexByScenePath("Scenes/Stages Menu");
         SceneManager.LoadScene(shopIndex);
