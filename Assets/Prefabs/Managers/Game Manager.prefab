@@ -44,7 +44,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92cceeba6926ee54dbb542d36b4eae48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ball: {fileID: 3282313870866032478, guid: 6e457f3f738be0c4b9faa7e843c6207c, type: 3}
+  balls:
+  - {fileID: 3282313870866032478, guid: 6e457f3f738be0c4b9faa7e843c6207c, type: 3}
+  - {fileID: 3282313870866032478, guid: 5ae6ec4e974417c4ea05d8df6673e47f, type: 3}
+  - {fileID: 3282313870866032478, guid: ee3c754623d0ee145a691d70f1a77b61, type: 3}
+  - {fileID: 3282313870866032478, guid: 964fec715f75278479c980b13f91b521, type: 3}
+  - {fileID: 3282313870866032478, guid: c5b6ed10a5d0f6d46ac5c1b9d634bd8d, type: 3}
+  - {fileID: 3282313870866032478, guid: 6f2bec754fede574c88d792e26c27557, type: 3}
+  - {fileID: 3282313870866032478, guid: 8ab36ffecec29c146bf374463bb0fb41, type: 3}
+  ballPosition: {fileID: 0}
   qtdKicks: 3
   sceneBalls: 0
   kicked: 0

@@ -796,7 +796,7 @@ MonoBehaviour:
     enabled: 0
     bought: 0
     use: 0
-  tempBalls: []
+  controllerBalls: []
   buttonBall: {fileID: 5238948913125284368, guid: 8171f653a9078754fba1bf6b1ddaa6f6, type: 3}
   panelGrid: {fileID: 1283330165}
 --- !u!4 &775256249

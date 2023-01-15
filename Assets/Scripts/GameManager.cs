@@ -5,7 +5,7 @@ public class GameManager: MonoBehaviour {
 
     public static GameManager instance;
     // Bola
-    [SerializeField] private GameObject ball;
+    [SerializeField] private GameObject[] balls;
     [SerializeField] private Transform ballPosition;
     public int qtdKicks = 2;
     public int sceneBalls = 0;
@@ -52,7 +52,11 @@ public class GameManager: MonoBehaviour {
     void InstanciateBalls() {
         // Cenas a partir da fase 04 terão movimentação de camera
         if(qtdKicks > 0 && sceneBalls == 0) {
-            Instantiate(ball, new Vector2(ballPosition.position.x, ballPosition.position.y), Quaternion.identity);
+            Instantiate(
+                balls[PlayerPrefs.GetInt("BallInUse")],
+                new Vector2(ballPosition.position.x, ballPosition.position.y),
+                Quaternion.identity
+            );
             sceneBalls += 1;
             kicked = false;
         }

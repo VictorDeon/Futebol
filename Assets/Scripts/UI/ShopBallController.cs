@@ -44,6 +44,7 @@ public class ShopBallController: MonoBehaviour {
         priceContainer.SetActive(false);
         closed.SetActive(false);
         ball.use = true;
+        PlayerPrefs.SetInt("BallInUse", ball.id);
         PlayerPrefs.SetInt($"ItemShop{ball.id}Using", 1);
     }
 

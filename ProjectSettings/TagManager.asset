@@ -7,6 +7,7 @@ TagManager:
   - ball
   - die
   - goal
+  - settingsBtn
   layers:
   - Default
   - TransparentFX
