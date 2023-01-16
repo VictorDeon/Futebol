@@ -53,14 +53,26 @@ public class GameManager: MonoBehaviour {
 
     void InstanciateBalls() {
         // Cenas a partir da fase 04 terão movimentação de camera
-        if(qtdKicks > 0 && sceneBalls == 0) {
-            Instantiate(
-                balls[PlayerPrefs.GetInt("BallInUse")],
-                new Vector2(ballPosition.position.x, ballPosition.position.y),
-                Quaternion.identity
-            );
-            sceneBalls += 1;
-            kicked = false;
+        if(CameraManager.instance) {
+            if(qtdKicks > 0 && sceneBalls == 0 && CameraManager.instance.startAnimationFinished) {
+                Instantiate(
+                    balls[PlayerPrefs.GetInt("BallInUse")],
+                    new Vector2(ballPosition.position.x, ballPosition.position.y),
+                    Quaternion.identity
+                );
+                sceneBalls += 1;
+                kicked = false;
+            }
+        } else {
+            if(qtdKicks > 0 && sceneBalls == 0) {
+                Instantiate(
+                    balls[PlayerPrefs.GetInt("BallInUse")],
+                    new Vector2(ballPosition.position.x, ballPosition.position.y),
+                    Quaternion.identity
+                );
+                sceneBalls += 1;
+                kicked = false;
+            }
         }
     }
 

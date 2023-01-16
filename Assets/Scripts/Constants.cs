@@ -1,4 +1,6 @@
 
+using System.Collections.Generic;
+
 namespace Constants {
     public static class STAGE_STATUS {
         public static readonly string UNLOCKED = "UNLOCKED";
@@ -18,5 +20,17 @@ namespace Constants {
         public static readonly string REWARD_AD_IOS = "Rewarded_iOS";
         public static readonly string BANNER_AD_ANDROID = "Banner_Android";
         public static readonly string BANNER_AD_IOS = "Banner_iOS";
+    }
+
+    public static class VARIABLES {
+        public static List<string> BALL_IN_USE = new List<string>() {
+            "default",
+            "argelia",
+            "argentina",
+            "camaroes",
+            "chile",
+            "alemanha",
+            "brasil"
+        };
     }
 }

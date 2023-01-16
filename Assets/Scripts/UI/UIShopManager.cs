@@ -16,6 +16,13 @@ public class UIShopManager: MonoBehaviour {
         if(instance == null) {
             instance = this;
         }
+
+        // Configurando a bola default de inicio.
+        if(!PlayerPrefs.HasKey("BallInUse")) {
+            PlayerPrefs.SetInt("BallInUse", 0);
+            PlayerPrefs.SetInt("ItemShop0Using", 1);
+            PlayerPrefs.SetInt("ItemShop0Bought", 1);
+        }
     }
 
     void Start() {

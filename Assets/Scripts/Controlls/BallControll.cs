@@ -87,6 +87,7 @@ public class BallControll: MonoBehaviour {
     void OnMouseDown() {
         if(!GameManager.instance.kicked) {
             releaseRotation = true;
+            this.GetComponent<Renderer>().sortingOrder = 4;
             arrow.GetComponent<Image>().enabled = true;
             arrowWithForce.GetComponent<Image>().enabled = true;
         }
@@ -95,12 +96,14 @@ public class BallControll: MonoBehaviour {
     // Solta o clique da bola
     void OnMouseUp() {
         releaseRotation = false;
+        this.GetComponent<Renderer>().sortingOrder = 3;
         arrow.GetComponent<Image>().enabled = false;
         Image arrowWithForceImg = arrowWithForce.GetComponent<Image>();
         arrowWithForceImg.enabled = false;
         if(!GameManager.instance.kicked && strength > 0) {
             releasekick = true;
             GameManager.instance.kicked = true;
+            StartCoroutine(KillBallAfterSomeTime());
             arrowWithForceImg.fillAmount = 0;
         }
     }
@@ -168,6 +171,11 @@ public class BallControll: MonoBehaviour {
     IEnumerator KillAnimation() {
         yield return new WaitForSeconds(0.5f);
         Destroy(popBallAnimation.gameObject);
+    }
+
+    IEnumerator KillBallAfterSomeTime() {
+        yield return new WaitForSeconds(8);
+        this.die();
     }
 
     // Ao terminar a animação deixe a bola dinamica para a gravidade e força agir

@@ -8,7 +8,7 @@ public class UIManager: MonoBehaviour {
     public static UIManager instance;
     public Text coinsUI, ballsUI;
     private GameObject losePanel, winPanel, pausePanel;
-    private Button pauseButton, playButton, pauseStageMenuButton;
+    private Button pauseButton, playButton, pauseStageMenuButton, pauseRestartButton;
     private Button loseRestartButton, loseStageMenuButton;
     private Button winRestartButton, winStageMenuButton, nextLevelButton;
     public int beforeCoins, afterCoins, resultCoins;
@@ -59,6 +59,8 @@ public class UIManager: MonoBehaviour {
             pauseStageMenuButton.onClick.AddListener(this.StageMenu);
             playButton = GameObject.Find("Play Button").GetComponent<Button>();
             playButton.onClick.AddListener(this.Play);
+            pauseRestartButton = GameObject.Find("Pause Restart Button").GetComponent<Button>();
+            pauseRestartButton.onClick.AddListener(this.Restart);
 
             // Pegando o valor inicial das moedas na fase
             beforeCoins = PlayerPrefs.GetInt("Coins");
@@ -84,6 +86,7 @@ public class UIManager: MonoBehaviour {
     }
 
     void Restart() {
+        Time.timeScale = 1;
         if (GameManager.instance.win) {
             resultCoins = 0;
         } else {
@@ -95,6 +98,7 @@ public class UIManager: MonoBehaviour {
             resultCoins = 0;
         }
         SceneManager.LoadScene(WhereAmI.instance.sceneIndex);
+        StartCoroutine(removePausePanel());
     }
 
     void StageMenu() {
