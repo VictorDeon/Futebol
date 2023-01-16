@@ -31,7 +31,7 @@ public class UIManager: MonoBehaviour {
     }
 
     void FindObjects() {
-        if(WhereAmI.instance.isStageScene) {
+        if(WhereAmI.instance.isStageScene()) {
             coinsUI = GameObject.Find("Coin Number").GetComponent<Text>();
             ballsUI = GameObject.Find("Ball Number").GetComponent<Text>();
 
@@ -87,8 +87,11 @@ public class UIManager: MonoBehaviour {
         if (GameManager.instance.win) {
             resultCoins = 0;
         } else {
-            resultCoins = afterCoins - beforeCoins;
-            ScoreManager.instance.LoseCoins(resultCoins);
+            if(!AdsManager.instance.adsCompleted) {
+                resultCoins = afterCoins - beforeCoins;
+                ScoreManager.instance.LoseCoins(resultCoins);
+            }
+            AdsManager.instance.adsCompleted = false;
             resultCoins = 0;
         }
         SceneManager.LoadScene(WhereAmI.instance.sceneIndex);
@@ -100,8 +103,11 @@ public class UIManager: MonoBehaviour {
             resultCoins = 0;
         } else {
             resultCoins = afterCoins - beforeCoins;
-            ScoreManager.instance.LoseCoins(resultCoins);
+            if(!AdsManager.instance.adsCompleted) {
+                ScoreManager.instance.LoseCoins(resultCoins);
+            }
             resultCoins = 0;
+            AdsManager.instance.adsCompleted = false;
         }
         SceneManager.LoadScene(WhereAmI.instance.menuStageSceneIndex);
     }

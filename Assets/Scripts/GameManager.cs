@@ -13,6 +13,8 @@ public class GameManager: MonoBehaviour {
     // Jogo
     public bool gameStarted;
     public bool win;
+    // Ads
+    private bool adsExecuted = false;
 
     // Executado mesmo com o game object desativado.
     // Não destruir o objeto quando passado de uma cena para outra.
@@ -43,7 +45,7 @@ public class GameManager: MonoBehaviour {
 
     // Executado em cada nova scena
     void LoadInScene(Scene scene, LoadSceneMode mode) {
-        if (WhereAmI.instance.isStageScene) {
+        if (WhereAmI.instance.isStageScene()) {
             ballPosition = GameObject.Find("Ball Start Position").GetComponent<Transform>();
             StartGame();
         }
@@ -66,6 +68,10 @@ public class GameManager: MonoBehaviour {
         UIManager.instance.GameOverUI();
         win = false;
         gameStarted = false;
+        if(!adsExecuted) {
+            AdsManager.instance.showBasicAds();
+            adsExecuted = true;
+        }
     }
 
     void WinGame() {
@@ -78,6 +84,7 @@ public class GameManager: MonoBehaviour {
         win = false;
         qtdKicks = 2;
         sceneBalls = 0;
+        adsExecuted = false;
         UIManager.instance.StartUI();
     }
 }
