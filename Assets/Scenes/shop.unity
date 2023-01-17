@@ -763,13 +763,13 @@ MonoBehaviour:
   - id: 1
     spriteName: argelia
     price: 300
-    enabled: 1
+    enabled: 0
     bought: 0
     use: 0
   - id: 2
     spriteName: argentina
     price: 500
-    enabled: 1
+    enabled: 0
     bought: 0
     use: 0
   - id: 3

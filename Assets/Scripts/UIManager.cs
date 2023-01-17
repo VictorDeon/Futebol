@@ -78,7 +78,9 @@ public class UIManager: MonoBehaviour {
     }
 
     public void GameOverUI() {
-        losePanel.SetActive(true);
+        if(!GameManager.instance.win) {
+            losePanel.SetActive(true);
+        }
     }
 
     public void WinGameUI() {

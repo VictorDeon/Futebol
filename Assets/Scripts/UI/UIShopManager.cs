@@ -22,6 +22,7 @@ public class UIShopManager: MonoBehaviour {
             PlayerPrefs.SetInt("BallInUse", 0);
             PlayerPrefs.SetInt("ItemShop0Using", 1);
             PlayerPrefs.SetInt("ItemShop0Bought", 1);
+            PlayerPrefs.SetInt("ItemShop0Enabled", 1);
         }
     }
 
@@ -89,6 +90,10 @@ public class UIShopManager: MonoBehaviour {
             ball.use = false;
         }
 
-        // Atualizar quando está enabled...
+        if(PlayerPrefs.GetInt($"ItemShop{ball.id}Enabled") == TRUE) {
+            ball.enabled = true;
+        } else {
+            ball.enabled = false;
+        }
     }
 }
