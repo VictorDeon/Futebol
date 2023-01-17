@@ -6,7 +6,6 @@ public class ScoreManager: MonoBehaviour {
     public int coins;
 
     void Awake() {
-        PlayerPrefs.DeleteAll();
         if (instance == null) {
             instance = this;
             DontDestroyOnLoad(gameObject);

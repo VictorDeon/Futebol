@@ -174,8 +174,10 @@ public class BallControll: MonoBehaviour {
     }
 
     IEnumerator KillBallAfterSomeTime() {
-        yield return new WaitForSeconds(8);
-        this.die();
+        yield return new WaitForSeconds(5);
+        if(!GameManager.instance.win) {
+            this.die();
+        }
     }
 
     // Ao terminar a animação deixe a bola dinamica para a gravidade e força agir

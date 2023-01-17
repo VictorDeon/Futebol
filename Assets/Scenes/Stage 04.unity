@@ -872,6 +872,7 @@ MonoBehaviour:
   leftObject: {fileID: 1942326733}
   rightObject: {fileID: 1329366973}
   ball: {fileID: 0}
+  startAnimationFinished: 0
 --- !u!95 &1541212217
 Animator:
   serializedVersion: 4
