@@ -8,6 +8,7 @@ TagManager:
   - die
   - goal
   - settingsBtn
+  - coins
   layers:
   - Default
   - TransparentFX

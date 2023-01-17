@@ -5,7 +5,7 @@ public class CoinsTrigger: MonoBehaviour {
         if (otherObject.gameObject.CompareTag("ball")) {
             ScoreManager.instance.CollectCoins(100);
             AudioManager.instance.PlaySong(0);
-            Destroy(this.gameObject);
+            this.GetComponent<Renderer>().enabled = false;
         }
     }
 
