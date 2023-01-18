@@ -1391,6 +1391,12 @@ MonoBehaviour:
   - levelText: 06
     able: 0
     completed: 0
+  - levelText: 07
+    able: 0
+    completed: 0
+  - levelText: 08
+    able: 0
+    completed: 0
 --- !u!1 &2121279944
 GameObject:
   m_ObjectHideFlags: 0
