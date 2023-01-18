@@ -52,7 +52,7 @@ public class UIStartManager: MonoBehaviour {
     }
 
     public void WebLink() {
-        Application.OpenURL("https://www.google.com.br");
+        Application.OpenURL("https://www.facebook.com/vwapplication");
     }
 }
 
