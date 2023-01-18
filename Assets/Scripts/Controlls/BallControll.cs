@@ -139,7 +139,7 @@ public class BallControll: MonoBehaviour {
         Instantiate(popBallAnimation, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
         // Remove a pontuação ganha e retorna as moedas.
-        if(GameManager.instance.qtdKicks > 1) {
+        if(GameManager.instance.qtdKicks > 1 && !GameManager.instance.win) {
             int resultCoins = UIManager.instance.afterCoins - UIManager.instance.beforeCoins;
             ScoreManager.instance.LoseCoins(resultCoins);
             GameObject[] coins = GameObject.FindGameObjectsWithTag("coins");
