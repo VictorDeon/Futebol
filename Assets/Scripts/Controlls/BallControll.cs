@@ -138,16 +138,18 @@ public class BallControll: MonoBehaviour {
     void die() {
         Instantiate(popBallAnimation, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
+        // Remove a pontuação ganha e retorna as moedas.
+        if(GameManager.instance.qtdKicks > 1) {
+            int resultCoins = UIManager.instance.afterCoins - UIManager.instance.beforeCoins;
+            ScoreManager.instance.LoseCoins(resultCoins);
+            GameObject[] coins = GameObject.FindGameObjectsWithTag("coins");
+            foreach(GameObject coin in coins) {
+                coin.GetComponent<Renderer>().enabled = true;
+            }
+        }
         GameManager.instance.sceneBalls -= 1;
         GameManager.instance.qtdKicks -= 1;
         StartCoroutine(KillAnimation());
-        // Remove a pontuação ganha e retorna as moedas.
-        int resultCoins = UIManager.instance.afterCoins - UIManager.instance.beforeCoins;
-        ScoreManager.instance.LoseCoins(resultCoins);
-        GameObject[] coins = GameObject.FindGameObjectsWithTag("coins");
-        foreach(GameObject coin in coins) {
-            coin.GetComponent<Renderer>().enabled = true;
-        }
     }
 
     void Walls() {
