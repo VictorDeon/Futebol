@@ -9,6 +9,7 @@ TagManager:
   - goal
   - settingsBtn
   - coins
+  - touch
   layers:
   - Default
   - TransparentFX

@@ -16,6 +16,7 @@ public class BallControll: MonoBehaviour {
     // Força
     private Rigidbody2D ball;
     public float strength = 0;
+    private Collider2D ballTouch;
 
     // Paredes
     private Transform leftWall, rightWall;
@@ -65,11 +66,11 @@ public class BallControll: MonoBehaviour {
         float moveY = Input.GetAxis("Mouse Y");
 
         if(zRotation < 90 && moveY < 0) {
-            zRotation += 2.5f;
+            zRotation += 2.0f;
         }
 
         if(zRotation > 0 && moveY > 0) {
-            zRotation -= 2.5f;
+            zRotation -= 2.0f;
         }
     }
 
@@ -90,6 +91,7 @@ public class BallControll: MonoBehaviour {
             this.GetComponent<Renderer>().sortingOrder = 4;
             arrow.GetComponent<Image>().enabled = true;
             arrowWithForce.GetComponent<Image>().enabled = true;
+            ballTouch = GameObject.FindGameObjectWithTag("touch").GetComponentInChildren<Collider2D>();
         }
     }
 
@@ -105,6 +107,7 @@ public class BallControll: MonoBehaviour {
             GameManager.instance.kicked = true;
             StartCoroutine(KillBallAfterSomeTime());
             arrowWithForceImg.fillAmount = 0;
+            ballTouch.enabled = false;
         }
     }
 
@@ -125,12 +128,12 @@ public class BallControll: MonoBehaviour {
         Image arrowWithForceImg = arrowWithForce.GetComponent<Image>();
 
         if(moveX < 0) {
-            arrowWithForceImg.fillAmount += 1f * Time.deltaTime;
+            arrowWithForceImg.fillAmount += 0.5f * Time.deltaTime;
             strength = arrowWithForceImg.fillAmount * 1000;
         }
 
         if(moveX > 0) {
-            arrowWithForceImg.fillAmount -= 1f * Time.deltaTime;
+            arrowWithForceImg.fillAmount -= 0.5f * Time.deltaTime;
             strength = arrowWithForceImg.fillAmount * 1000;
         }
     }
