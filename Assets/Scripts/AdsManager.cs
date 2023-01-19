@@ -116,6 +116,7 @@ public class AdsManager: MonoBehaviour, IUnityAdsInitializationListener, IUnityA
             Debug.Log($"Anuncio rewards {adUnitId} completado com sucesso!");
             adsCompleted = true;
         }
+        this.OnUnityAdsAdLoaded(adUnitId);
     }
 }
 
