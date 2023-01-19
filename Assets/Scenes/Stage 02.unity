@@ -132,11 +132,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 143678349, guid: 5dac66e7bb29b1e40a414657fe7ebadb, type: 3}
       propertyPath: m_TranslationLimits.m_LowerTranslation
-      value: -2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 143678349, guid: 5dac66e7bb29b1e40a414657fe7ebadb, type: 3}
       propertyPath: m_TranslationLimits.m_UpperTranslation
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8191937317551373764, guid: 5dac66e7bb29b1e40a414657fe7ebadb, type: 3}
       propertyPath: m_Name
@@ -687,7 +687,7 @@ Transform:
   m_Children:
   - {fileID: 1147336563}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1518703732
 SpriteRenderer:

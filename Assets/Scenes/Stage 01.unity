@@ -1715,6 +1715,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 939959263637111513, guid: c8ff7f6c1fca0104ab2b44cb4117beb5, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 1430596790333983255, guid: c8ff7f6c1fca0104ab2b44cb4117beb5, type: 3}
       propertyPath: m_Points.Array.size
       value: 18
@@ -1835,6 +1839,10 @@ PrefabInstance:
     - target: {fileID: 6859389537113803385, guid: cffa5700362fc284697da1f7585d47d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6859389537113803389, guid: cffa5700362fc284697da1f7585d47d9, type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6859389537113803389, guid: cffa5700362fc284697da1f7585d47d9, type: 3}
       propertyPath: m_Name
