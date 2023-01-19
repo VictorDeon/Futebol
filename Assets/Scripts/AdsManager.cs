@@ -9,7 +9,7 @@ public class AdsManager: MonoBehaviour, IUnityAdsInitializationListener, IUnityA
 
     public static AdsManager instance;
     string platformId;
-    bool testMode = true;
+    bool testMode = false;
 
     // Disparar anuncio
     string adBasicId = null;
