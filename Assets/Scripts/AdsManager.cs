@@ -96,6 +96,7 @@ public class AdsManager: MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message) {
         // Opcionalmente, execute o código se o anúncio falhar ao carregar, como tentar novamente.
         Debug.Log($"Error ao carregar o Ad: {adUnitId} - {error} - {message}");
+        this.OnInitializationComplete();
     }
 
     public void OnUnityAdsShowFailure(string adUnitId, UnityAdsShowError error, string message) {
@@ -116,7 +117,7 @@ public class AdsManager: MonoBehaviour, IUnityAdsInitializationListener, IUnityA
             Debug.Log($"Anuncio rewards {adUnitId} completado com sucesso!");
             adsCompleted = true;
         }
-        this.OnUnityAdsAdLoaded(adUnitId);
+        this.OnInitializationComplete();
     }
 }
 
