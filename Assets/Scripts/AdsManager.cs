@@ -54,7 +54,7 @@ public class AdsManager: MonoBehaviour, IUnityAdsInitializationListener, IUnityA
         }
     }
 
-    public void ShowRewardsAds() {
+    void ShowRewardsAds() {
         if(adRewardLoaded) {
             Debug.Log("Mostrando anuncio rewards: " + adRewardsId);
             Advertisement.Show(adRewardsId, this);
@@ -71,12 +71,16 @@ public class AdsManager: MonoBehaviour, IUnityAdsInitializationListener, IUnityA
         }
     }
 
-    public void OnInitializationComplete() {
-        Debug.Log("Inicialização do Unity Ads completada.");
+    void LoadAds() {
         Debug.Log("Carregando anuncio basico: " + adBasicId);
         Advertisement.Load(adBasicId, this);
         Debug.Log("Carregando anuncio rewards: " + adRewardsId);
         Advertisement.Load(adRewardsId, this);
+    }
+
+    public void OnInitializationComplete() {
+        Debug.Log("Inicialização do Unity Ads completada.");
+        this.LoadAds();
     }
 
     public void OnInitializationFailed(UnityAdsInitializationError error, string message) {
@@ -96,12 +100,13 @@ public class AdsManager: MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     public void OnUnityAdsFailedToLoad(string adUnitId, UnityAdsLoadError error, string message) {
         // Opcionalmente, execute o código se o anúncio falhar ao carregar, como tentar novamente.
         Debug.Log($"Error ao carregar o Ad: {adUnitId} - {error} - {message}");
-        this.OnInitializationComplete();
+        this.LoadAds();
     }
 
     public void OnUnityAdsShowFailure(string adUnitId, UnityAdsShowError error, string message) {
         // Opcionalmente, execute o código se a unidade de anúncio não for exibida, como ao carregar outro anúncio.
         Debug.Log($"Error ao mostrar o anuncio {adUnitId}: {error} - {message}");
+        this.LoadAds();
     }
 
     public void OnUnityAdsShowStart(string adUnitId) {
@@ -113,11 +118,11 @@ public class AdsManager: MonoBehaviour, IUnityAdsInitializationListener, IUnityA
     }
 
     public void OnUnityAdsShowComplete(string adUnitId, UnityAdsShowCompletionState showCompletionState) {
+        Debug.Log($"Anuncio rewards {adUnitId} completado com sucesso com status {showCompletionState}!");
         if (adUnitId.Equals(adRewardsId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED)) {
-            Debug.Log($"Anuncio rewards {adUnitId} completado com sucesso!");
             adsCompleted = true;
         }
-        this.OnInitializationComplete();
+        this.LoadAds();
     }
 }
 
